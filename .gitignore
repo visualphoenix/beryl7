@@ -1,0 +1,11 @@
+# Corp CA certs are local-only; the dir is tracked via .gitkeep
+extra-cas/*
+!extra-cas/.gitkeep
+
+# Build artifacts pulled out of the volume
+firmware/
+build.log
+diffconfig.txt
+
+# macOS junk
+.DS_Store
