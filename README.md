@@ -14,7 +14,13 @@ described in [this GL.iNet forum thread][bug]. Stock firmware doesn't fix it, so
 this build patches the `mt76` driver to work around the broken connac3 TX path
 and produces a firmware that holds full speed.
 
+The patch is a variant of the one [kyoto44 posted on openwrt/mt76 #1043][patch].
+Their version forces the host to fill the TXWI for every chip; ours scopes that
+to the MT7990 only (`is_mt7990()`), leaving the SDO path untouched on MT7996 and
+MT7992. See `patches/mt76/100-mt7996-mt7990-host-fill-txd.patch`.
+
 [bug]: https://forum.gl-inet.com/t/beryl-7-gl-mt3600be-tx-speeds-unstable/67283
+[patch]: https://github.com/openwrt/mt76/issues/1043#issuecomment-4414905981
 
 ## How it works
 
